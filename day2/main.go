@@ -52,17 +52,14 @@ func solution1(lines []string) int {
 	return safes
 }
 
-func lineMinusOne(line []string, i int) []string {
-	res := slices.Clone(line)
-	return append(res[:i], res[i+1:]...)
-}
-
 func solution2(lines []string) int {
 	safes := 0
 	for _, report := range lines {
 		levels := strings.Fields(report)
 		for i := range len(levels) {
-			temp := lineMinusOne(levels, i)
+			// Remove levels[i] and test the safety of levels without this elt
+			temp := slices.Clone(levels)
+			temp = append(temp[:i], temp[i+1:]...)
 			if isSafe(strings.Join(temp, " ")) {
 				safes++
 				break
