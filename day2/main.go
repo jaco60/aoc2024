@@ -21,7 +21,7 @@ func convertToInt(report string) []int {
 
 // func isSafe(report string) bool {
 // 	levels := convertToInt(report)
-	
+
 // 	// Check if the report is ascending or descending
 // 	if !slices.IsSorted(levels) &&
 // 	   !slices.IsSortedFunc(levels, func(a, b int) int {
@@ -41,22 +41,22 @@ func convertToInt(report string) []int {
 
 func isSafe(report string) bool {
 	levels := convertToInt(report)
-	
+
 	ascending := levels[0] < levels[1]
 	if ascending {
 		for i := range len(levels) - 1 {
 			diff := levels[i+1] - levels[i]
-			if  diff <= 0 || diff > 3 {
+			if diff <= 0 || diff > 3 {
 				return false
 			}
 		}
 	} else {
 		for i := range len(levels) - 1 {
 			diff := levels[i] - levels[i+1]
-			if  diff <= 0 || diff > 3 {
+			if diff <= 0 || diff > 3 {
 				return false
 			}
-		}	
+		}
 	}
 	return true
 }
@@ -73,7 +73,7 @@ func solution1(lines []string) int {
 
 func lineMinusOne(line []string, i int) []string {
 	// Return line minus line[i]
-	res := []string{}
+	var res []string
 	for j := range len(line) {
 		if j != i {
 			res = append(res, line[j])
@@ -83,7 +83,7 @@ func lineMinusOne(line []string, i int) []string {
 }
 
 func solution2(lines []string) int {
-	safes := 0		
+	safes := 0
 	for _, report := range lines {
 		levels := strings.Fields(report)
 		for i := range len(levels) {
