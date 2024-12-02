@@ -3,6 +3,7 @@ package main
 import (
 	_ "embed"
 	"fmt"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -18,26 +19,6 @@ func convertToInt(report string) []int {
 	}
 	return res
 }
-
-// func isSafe(report string) bool {
-// 	levels := convertToInt(report)
-
-// 	// Check if the report is ascending or descending
-// 	if !slices.IsSorted(levels) &&
-// 	   !slices.IsSortedFunc(levels, func(a, b int) int {
-// 					return b - a
-// 				}) {
-// 					return false
-// 				}
-// 	// Any two adjacent levels differ by at least one and at most three
-// 	for i, level := range levels[:len(levels)-1] {
-// 		diff := int(math.Abs(float64(level - levels[i+1])))
-// 		if  diff == 0 || diff > 3 {
-// 			return false
-// 		}
-// 	}
-// 				return true
-// }
 
 func isSafe(report string) bool {
 	levels := convertToInt(report)
@@ -72,14 +53,8 @@ func solution1(lines []string) int {
 }
 
 func lineMinusOne(line []string, i int) []string {
-	// Return line minus line[i]
-	var res []string
-	for j := range len(line) {
-		if j != i {
-			res = append(res, line[j])
-		}
-	}
-	return res
+	res := slices.Clone(line)
+	return append(res[:i], res[i+1:]...)
 }
 
 func solution2(lines []string) int {
