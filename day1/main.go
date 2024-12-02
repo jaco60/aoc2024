@@ -14,7 +14,7 @@ var input string
 
 // No error handling: input is supposed correct...
 
-func lefts_and_rights(lines []string) ([]int, []int) {
+func leftsAndRights(lines []string) ([]int, []int) {
 	var lefts, rights []int
 	for _, pair := range lines {
 		line := strings.Fields(pair)
@@ -27,7 +27,7 @@ func lefts_and_rights(lines []string) ([]int, []int) {
 }
 
 func solution1(lines []string) int {
-	lefts, rights := lefts_and_rights(lines)
+	lefts, rights := leftsAndRights(lines)
 	slices.Sort(lefts)
 	slices.Sort(rights)
 	sum := 0
@@ -38,7 +38,7 @@ func solution1(lines []string) int {
 }
 
 func solution2(lines []string) int {
-	lefts, rights := lefts_and_rights(lines)
+	lefts, rights := leftsAndRights(lines)
 	counts := make(map[int]int)
 	// Counting each values occurrences in rights
 	for _, right := range rights {
