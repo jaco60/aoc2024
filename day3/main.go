@@ -17,8 +17,8 @@ func solution1(input string) int {
 	mults := re.FindAllString(input, -1)
 	for _, mult := range mults {
 		args := strings.Fields(re.ReplaceAllString(mult, "$1 $2"))
-		arg1, _ := strconv.Atoi(string(args[0]))
-		arg2, _ := strconv.Atoi(string(args[1]))
+		arg1, _ := strconv.Atoi(args[0])
+		arg2, _ := strconv.Atoi(args[1])
 		res += arg1 * arg2
 	}
 	return res
