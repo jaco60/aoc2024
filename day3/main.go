@@ -48,5 +48,4 @@ func solution2(input string) int {
 func main() {
 	fmt.Println(solution1(input))
 	fmt.Println(solution2(input))
-
 }
