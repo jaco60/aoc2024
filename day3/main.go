@@ -25,8 +25,8 @@ func solution1(input string) int {
 }
 
 func solution2(input string) int {
-	mults := ""    // To reuse solution1...
-    re := regexp.MustCompile(`mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)`)
+	mults := "" // To reuse solution1...
+	re := regexp.MustCompile(`mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)`)
 	matches := re.FindAllString(input, -1)
 	ok := true
 	for _, match := range matches {
