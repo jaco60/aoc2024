@@ -39,7 +39,7 @@ func solution2(input string) int {
 			continue
 		}
 		if ok {
-			mults = mults + match
+			mults += match
 		}
 	}
 	return solution1(mults)
