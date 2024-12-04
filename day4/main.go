@@ -92,7 +92,7 @@ func solution2(grid []string) int {
 	count := 0
 	xMax := len(grid[0])
 	yMax := len(grid)
-    // 'A' cannot be in line 0/col 0...
+	// 'A' cannot be in line 0/col 0...
 	for startX := 1; startX < xMax-1; startX++ {
 		for startY := 1; startY < yMax-1; startY++ {
 			if grid[startX][startY] == 'A' && findMas(grid, startX, startY) {
