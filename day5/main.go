@@ -50,7 +50,6 @@ func solution2(rules, updates []string) int {
 				}
 				return 0
 			})
-			fmt.Println(pages)
 			mid, _ := strconv.Atoi(string(pages[len(pages)/2]))
 			res += mid
 		}
