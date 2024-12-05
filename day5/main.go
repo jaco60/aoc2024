@@ -24,7 +24,7 @@ func isCorrect(updates, rules []string) bool {
 	return true
 }
 
-func solution1(rules, updates []string) int {
+func solution1(updates, rules []string) int {
 	res := 0
 	for _, update := range updates {
 		pages := strings.Split(update, ",")
@@ -48,7 +48,7 @@ func repair(pages, rules []string) []string {
 	})
 }
 
-func solution2(rules, updates []string) int {
+func solution2(updates, rules []string) int {
 	res := 0
 	for _, update := range updates {
 		pages := strings.Split(update, ",")
@@ -64,6 +64,7 @@ func main() {
 	data := strings.Split(input, "\n\n")
 	rules := strings.Fields(data[0])
 	updates := strings.Fields(data[1])
-	fmt.Println(solution1(rules, updates))
-	fmt.Println(solution2(rules, updates))
+
+	fmt.Println(solution1(updates, rules))
+	fmt.Println(solution2(updates, rules))
 }
