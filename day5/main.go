@@ -43,13 +43,14 @@ func solution2(rules, updates []string) int {
 		if !isCorrect(pages, rules) {
 			slices.SortFunc(pages, func(a, b string) int {
 				if slices.Contains(rules, a+"|"+b) {
-					return 1
+					return -1
 				}
 				if slices.Contains(rules, b+"|"+a) {
-					return -1
+					return 1
 				}
 				return 0
 			})
+			fmt.Println(pages)
 			mid, _ := strconv.Atoi(string(pages[len(pages)/2]))
 			res += mid
 		}
