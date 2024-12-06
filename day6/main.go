@@ -59,7 +59,7 @@ func checkBlock(grid []string, x, y int) bool {
 	return grid[x][y] == '#'
 }
 
-func solution1(grid []string) map[string]struct{} {
+func solution1(grid []string) int {
 	xGuard, yGuard := whereIsGuard(grid)
 	guardDir := grid[xGuard][yGuard]
 	path := map[string]struct{}{}
@@ -74,12 +74,12 @@ func solution1(grid []string) map[string]struct{} {
 			xGuard, yGuard = nextX, nextY
 		}
 	}
-	return path
+	return len(path)
 }
 
 func main() {
 	grid := strings.Fields(input)
 	posX, posY := whereIsGuard(grid)
 	fmt.Printf("starting from (%d, %d)\n", posX, posY)
-	fmt.Println(len(solution1(grid)))
+	fmt.Println(solution1(grid))
 }
