@@ -15,13 +15,12 @@ var input string
 // No error handling: input is supposed correct...
 
 func leftsAndRights(lines []string) ([]int, []int) {
-	var lefts, rights []int
-	for _, pair := range lines {
+	lefts := make([]int, len(lines))
+	rights := make([]int, len(lines))
+	for i, pair := range lines {
 		line := strings.Fields(pair)
-		left, _ := strconv.Atoi(line[0])
-		right, _ := strconv.Atoi(line[1])
-		lefts = append(lefts, left)
-		rights = append(rights, right)
+		lefts[i], _ = strconv.Atoi(line[0])
+		rights[i], _ = strconv.Atoi(line[1])
 	}
 	return lefts, rights
 }
