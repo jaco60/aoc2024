@@ -65,7 +65,7 @@ func solve(expected int, values []int, ops []string) bool {
 
 func solution(lines []string, num int) int {
 	var (
-		res        int = 0
+		res        = 0
 		expected   int
 		values     []int
 		operations []string

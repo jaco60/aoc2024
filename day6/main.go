@@ -28,10 +28,8 @@ func whereIsGuard(grid []string) (int, int) {
 func nextCoords(x, y int, dir byte) (int, int) {
 	switch dir {
 	case '^':
-
 		return x - 1, y
 	case 'v':
-
 		return x + 1, y
 	case '<':
 		return x, y - 1
